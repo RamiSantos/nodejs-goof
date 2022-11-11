@@ -14,10 +14,17 @@ jobs:
         with:
           command: monitor  
 
- owasp-zap
+ Owasp-zap:
 name: ZAP
   steps:
    - name: ZAP Scan
      uses: zaproxy/action-baseline@v0.7.0
      with:
        target: 'https://juice-shop.herokuapp.com/'
+       
+ Nuclei
+  name: Nuclei Scan
+  runs-on: ubuntu-latest
+  uses: projectdiscovery/nuclei-action@main
+  with:
+    target: https://juice-shop.herokuapp.com/
